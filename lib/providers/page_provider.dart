@@ -9,6 +9,7 @@ class PageProvider extends ChangeNotifier {
   /// Al entrar por url
   void createScrollController(String routeName) {
     scrollController = PageController(initialPage: getPageIndex(routeName));
+    html.document.title = routeName; // TITULO DE LA PAGINA
   }
 
   int getPageIndex(String routeName) {
@@ -17,6 +18,7 @@ class PageProvider extends ChangeNotifier {
 
   void changeUrl(int index) {
     html.window.history.pushState('', '', '#/${_pages[index]}');
+    html.document.title = _pages[index]; // TITULO DE LA PAGINA
   }
 
   void goTo(int index) {

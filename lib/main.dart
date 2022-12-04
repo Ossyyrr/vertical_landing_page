@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Landing Page',
+      //  title: en el provider
       debugShowCheckedModeBanner: false,
       scrollBehavior: AppScrollBehavior(), // Habilita el scroll en page views para web
       theme: ThemeData(
