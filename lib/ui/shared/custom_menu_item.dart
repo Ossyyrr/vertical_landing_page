@@ -25,7 +25,8 @@ class _CustomMenuItemState extends State<CustomMenuItem> {
         child: GestureDetector(
           onTap: widget.onTap,
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
+            curve: Curves.slowMiddle,
+            duration: const Duration(milliseconds: 500),
             width: 150,
             height: 50,
             color: isHover ? Colors.pinkAccent : Colors.transparent,

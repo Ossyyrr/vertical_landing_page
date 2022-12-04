@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:vertical_landing_page/providers/page_provider.dart';
 import 'package:vertical_landing_page/ui/shared/custom_menu_item.dart';
 
 class CustomAppMenu extends StatefulWidget {
@@ -24,6 +26,8 @@ class _CustomAppMenuState extends State<CustomAppMenu> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
+    final PageProvider pageProvider = Provider.of<PageProvider>(context, listen: false);
+
     return MouseRegion(
       cursor: SystemMouseCursors.click, // Modificar forma del mouse
       child: GestureDetector(
@@ -42,11 +46,11 @@ class _CustomAppMenuState extends State<CustomAppMenu> with SingleTickerProvider
             children: [
               _MenuTitle(isOpen: isOpen, animationController: animationController),
               if (isOpen) ...[
-                CustomMenuItem(text: 'Home', onTap: () {}, delay: 0),
-                CustomMenuItem(text: 'About', onTap: () {}, delay: 30),
-                CustomMenuItem(text: 'Pricing', onTap: () {}, delay: 60),
-                CustomMenuItem(text: 'Contact', onTap: () {}, delay: 90),
-                CustomMenuItem(text: 'Location', onTap: () {}, delay: 120),
+                CustomMenuItem(text: 'Home', onTap: () => pageProvider.goTo(0), delay: 0),
+                CustomMenuItem(text: 'About', onTap: () => pageProvider.goTo(1), delay: 30),
+                CustomMenuItem(text: 'Pricing', onTap: () => pageProvider.goTo(2), delay: 60),
+                CustomMenuItem(text: 'Contact', onTap: () => pageProvider.goTo(3), delay: 90),
+                CustomMenuItem(text: 'Location', onTap: () => pageProvider.goTo(4), delay: 120),
                 const SizedBox(height: 10),
               ]
             ],
