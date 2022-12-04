@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vertical_landing_page/router/router.dart';
 import 'package:vertical_landing_page/ui/pages/home_page.dart';
+import 'package:vertical_landing_page/utils/app_scroll_behavior.dart';
 
 void main() {
   Flurorouter.configureRoutes();
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Landing Page',
       debugShowCheckedModeBanner: false,
+      scrollBehavior: AppScrollBehavior(), // Habilita el scroll en page views para web
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
